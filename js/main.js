@@ -1,0 +1,1 @@
+console.log('chose player added')
