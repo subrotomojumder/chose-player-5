@@ -1,0 +1,31 @@
+body{
+    background-color: #151515;
+}
+header{
+    height: 80vh;
+    background-image: url(images/bg.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+     
+}
+.head{
+    font-size: 5vw;
+    color: rgb(174, 174, 219);
+}
+.header-div{
+    position: relative;
+    z-index: 1;
+}
+#header-images{
+    position: absolute;
+    left: -55px;
+    z-index: 0;
+    top: 110px;
+}
+.player img{
+    height: 200px;
+}
+.selection-area{
+    height: 315px;
+    border: 2px solid rgb(219, 209, 209);
+}
