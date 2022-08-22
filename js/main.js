@@ -22,4 +22,38 @@ function addBtn(event) {
 }
 
 
+// calculate total expenses part
+function getInputValueById(inputId) {
+    const inputElement = document.getElementById(inputId);
+    const inputValue = parseInt(inputElement.value);
+    return inputValue;
+}
+function setElementTextById(elementId, newValue) {
+    const element = document.getElementById(elementId);
+    element.innerText = newValue;
+}
 
+document.getElementById('sub-calculate-btn').addEventListener('click', function () {
+    // calculate sub total
+    const numberOfPlayer = playersName.length; 
+    const perPlayerExpense = getInputValueById('per-player');
+    if (isNaN(perPlayerExpense) || perPlayerExpense < 0) {
+        alert('Please enter the positive numbers!');
+        return;
+    }
+    const totalPlayerExpenses = perPlayerExpense * numberOfPlayer;
+    setElementTextById('player-expense-total', totalPlayerExpenses);
+})
+document.getElementById('final-total-btn').addEventListener('click', function () {
+    // calculate final total 
+    const playersExpensesElement = document.getElementById('player-expense-total');
+    const totalPlayerExpenses = parseInt(playersExpensesElement.innerText);
+    const managerExpense = getInputValueById('manager-salary');
+    const coachExpense = getInputValueById('coach-salary');
+    if (isNaN( managerExpense) || managerExpense < 0 && isNaN(coachExpense) || coachExpense < 0) {
+        alert('Please enter the positive numbers!');
+        return;
+    }
+    const totalExpenses = totalPlayerExpenses + managerExpense + coachExpense;
+    setElementTextById('total-expenses', totalExpenses);
+})
