@@ -1,5 +1,6 @@
+// work-1
 // player name to show in selection list
-const playersName = [];
+const playersNames = [];
 
 const playerSelectionElement =  document.getElementById('select-player');
 function showSelectionList(namesArray) {
@@ -8,20 +9,29 @@ function showSelectionList(namesArray) {
     for (const name of namesArray) {
         const nameList = name;
         const li = document.createElement('li');
-        li.classList.add('h5')
+        li.classList.add('h5');
         li.innerText = nameList;
         playerSelectionElement.appendChild(li);
     }
 }
 
-function addBtn(event) {
+function addBtn(event) {   
     const playerName = event.target.parentNode.children[0].innerText;
-    playersName.push(playerName);
+    if (playersNames.length < 5) {
+        playersNames.push(playerName);
+    }
+    else{
+        alert('Sorry!! you can select maximum five members');
+        return;
+    }
+    showSelectionList(playersNames);
 
-    showSelectionList(playersName)
+    // do button disabled
+    const selectBtn = event.target;
+    selectBtn.setAttribute('disabled', true);    
 }
 
-
+// work-2
 // calculate total expenses part
 function getInputValueById(inputId) {
     const inputElement = document.getElementById(inputId);
@@ -35,7 +45,7 @@ function setElementTextById(elementId, newValue) {
 
 document.getElementById('sub-calculate-btn').addEventListener('click', function () {
     // calculate sub total
-    const numberOfPlayer = playersName.length; 
+    const numberOfPlayer = playersNames.length; 
     const perPlayerExpense = getInputValueById('per-player');
     if (isNaN(perPlayerExpense) || perPlayerExpense < 0) {
         alert('Please enter the positive numbers!');

@@ -17,15 +17,16 @@ header{
     z-index: 1;
 }
 #header-images{
+    height: 70%;
     position: absolute;
     left: -55px;
     z-index: 0;
-    top: 110px;
+    top: 65px;
 }
 .player img{
     height: 200px;
 }
 .selection-area{
-    height: 315px;
+    height: 310px;
     border: 2px solid rgb(219, 209, 209);
 }
